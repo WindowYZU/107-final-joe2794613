@@ -5,6 +5,10 @@
  */
 package lendle.courses.wp.finalexam_wp;
 
+import com.sun.deploy.uitoolkit.impl.fx.ui.FXMessageDialog;
+import java.awt.PopupMenu;
+import java.io.File;
+import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -106,7 +110,7 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = (DefaultListModel) this.jList1.getModel();
         if (model.contains(title)) {
             //Q1: 開啟 message dialog （10%）
-            
+            JOptionPane.showMessageDialog(jDesktopPane1,"不可重複" );
             ////////////////////
             return;
         }
@@ -114,7 +118,12 @@ public class Main extends javax.swing.JFrame {
         model.addElement(title);
         //Q2: 建立 TaskFrame（等同於 JInternalFrame）
         //加到 jDesktopPane1 (20%)
-        
+        initComponents();
+        TaskFrame taskFrame=new TaskFrame(new File(title));
+        setContentPane(jDesktopPane1);
+        JInternalFrame internalFrame=taskFrame.getTaskFrame;
+        getContentPane().add(taskFrame);
+        taskFrame.setVisible(true);
         ///////////////////////////////////////
     }//GEN-LAST:event_buttonNewActionPerformed
 
@@ -133,7 +142,15 @@ public class Main extends javax.swing.JFrame {
             //Q3: 建立 TaskFrame（等同於 JInternalFrame）
             //設定 noteTitle, noteContent
             //加到 jDesktopPane1 (20%)
-            
+            initComponents();
+            TaskFrame taskFrame=new TaskFrame(new File(title));
+            setContentPane(jDesktopPane1);
+            JInternalFrame internalFrame=taskFrame.getTaskFrame;
+            taskFrame.setVisible(true);
+            taskFrame.setNoteTitle(title);
+            taskFrame.setNoteContent(content);
+            setContentPane(taskFrame);
+            getContentPane().add(taskFrame);
             //////////////////////////////////////////
         }
     }//GEN-LAST:event_jList1MouseClicked
