@@ -121,8 +121,8 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         TaskFrame taskFrame=new TaskFrame(new File(title));
         setContentPane(jDesktopPane1);
-        JInternalFrame internalFrame=taskFrame.getTaskFrame;
-        getContentPane().add(taskFrame);
+        JInternalFrame internalFrame=taskFrame.getTaskFrame();
+        getContentPane().add(internalFrame);
         taskFrame.setVisible(true);
         ///////////////////////////////////////
     }//GEN-LAST:event_buttonNewActionPerformed
@@ -145,12 +145,11 @@ public class Main extends javax.swing.JFrame {
             initComponents();
             TaskFrame taskFrame=new TaskFrame(new File(title));
             setContentPane(jDesktopPane1);
-            JInternalFrame internalFrame=taskFrame.getTaskFrame;
+            JInternalFrame internalFrame=taskFrame.getTaskFrame();
             taskFrame.setVisible(true);
             taskFrame.setNoteTitle(title);
             taskFrame.setNoteContent(content);
-            setContentPane(taskFrame);
-            getContentPane().add(taskFrame);
+            getContentPane().add(internalFrame);
             //////////////////////////////////////////
         }
     }//GEN-LAST:event_jList1MouseClicked
